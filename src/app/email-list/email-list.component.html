@@ -1,0 +1,52 @@
+<div class="email-container">
+  <!-- Filters -->
+  <nav class="filter-buttons">
+    <span>Filter By: </span>
+    <button (click)="filterEmails('unread')" [class.active]="filter === 'unread'">Unread</button>
+    <button (click)="filterEmails('read')" [class.active]="filter === 'read'">Read</button>
+    <button (click)="filterEmails('favorites')" [class.active]="filter === 'favorites'">Favorites</button>
+  </nav>
+
+  <!-- Split View -->
+  <div class="email-split-view">
+    <!-- Master Panel (Email List) -->
+    <div class="email-list">
+      <div
+        *ngFor="let email of filteredEmails"
+        class="email-item"
+        [class.selected]="selectedEmail?.id === email.id"
+        (click)="onEmailSelect(email)"
+      >
+        <div class="email-avatar">{{ email.avatar }}</div>
+        <div class="email-info">
+          <p><span class="short-description">From: </span> <strong>{{ email.from.name }} &lt;{{ email.from.email }}&gt;</strong></p>
+          <p><span class="short-description">Subject:</span><strong> {{ email.subject }}</strong></p>
+          <p class="short-description">{{ email.short_description }}</p>
+          <p class="email-date">{{ email.date | date: 'dd/MM/yyyy hh:mm a' }}
+          <span *ngIf="email.isFavorite" class="favorite-text">Favorite</span>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Slave Panel (Email Body) -->
+    <div class="email-body" *ngIf="selectedEmailBody">
+      <div class="email-header">
+        <div class="email-avatar">{{ selectedEmail.avatar }}</div>
+        <div class="email-details">
+          <div>{{ filteredEmails[selectedEmailBody?.id-1].subject }}</div>
+          <button (click)="markAsFavorite(selectedEmail)" class="favorite-button">
+            {{ selectedEmail.isFavorite ? 'Unmark Favorite' : 'Mark as Favorite' }}
+          </button>
+          
+        </div>
+        
+      </div>
+      <div class="email-content">
+        <div class="email-date">{{ selectedEmail.date | date: 'dd/MM/yyyy hh:mm a' }}</div>
+        <p [innerHTML]="selectedEmailBody.body"></p>
+      </div>
+    </div>
+  </div>
+</div>
