@@ -9,11 +9,4 @@ import { Component, Input } from '@angular/core';
   styleUrl: './email-detail.component.css'
 })
 export class EmailDetailComponent {
-  @Input() email: any;
-
-  markFavorite() {
-    if (this.email) {
-      this.email.isFavorite = true;
-    }
-  }
 }

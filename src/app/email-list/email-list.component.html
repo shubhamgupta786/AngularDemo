@@ -1,4 +1,9 @@
-<div class="email-container">
+<div class="spinner" *ngIf="loading">
+  <div class="spinner-circle"></div>
+  <p>Loading emails...</p>
+</div>
+
+<div class="email-container" *ngIf="!loading">
   <!-- Filters -->
   <nav class="filter-buttons">
     <span>Filter By: </span>
@@ -8,11 +13,11 @@
   </nav>
 
   <!-- Split View -->
-  <div class="email-split-view">
+  <div class="email-split-view" [class.single-view]="selectedEmail">
     <!-- Master Panel (Email List) -->
-    <div class="email-list">
+    <div class="email-list"  *ngIf="!selectedEmail || screenSize > 768">
       <div
-        *ngFor="let email of filteredEmails"
+        *ngFor="let email of paginatedEmails"
         class="email-item"
         [class.selected]="selectedEmail?.id === email.id"
         (click)="onEmailSelect(email)"
@@ -28,19 +33,38 @@
           
         </div>
       </div>
+      <div class="pagination-controls">
+        <button (click)="navigateToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button (click)="navigateToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+      </div>
     </div>
 
     <!-- Slave Panel (Email Body) -->
-    <div class="email-body" *ngIf="selectedEmailBody">
+      <div class="email-body"  *ngIf="selectedEmail">
+        <div class="spinner" *ngIf="loadingEmailBody">
+          <div class="spinner-circle"></div>
+          <p>Loading email body...</p>
+        </div>
+        <div *ngIf="!loadingEmailBody">
+
+        <button
+        class="back-button"
+        (click)="deselectEmail()"
+        *ngIf="screenSize <= 768"
+        title="Go back"
+      >
+        <
+      </button>
       <div class="email-header">
         <div class="email-avatar">{{ selectedEmail.avatar }}</div>
-        <div class="email-details">
+        <!-- <div class="email-details"> -->
           <div>{{ filteredEmails[selectedEmailBody?.id-1].subject }}</div>
           <button (click)="markAsFavorite(selectedEmail)" class="favorite-button">
             {{ selectedEmail.isFavorite ? 'Unmark Favorite' : 'Mark as Favorite' }}
           </button>
           
-        </div>
+        <!-- </div> -->
         
       </div>
       <div class="email-content">
@@ -49,4 +73,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
