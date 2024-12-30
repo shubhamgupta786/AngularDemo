@@ -1,0 +1,14 @@
+<div class="login-container">
+    <h2>Create an account</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="signup()">
+      <p *ngIf="errorMessage" class="error-box">{{ errorMessage }}</p>
+      <input type="text" name="fullname" required  placeholder="Full Name" formControlName="fullname"/>
+      <input type="email" name="email" required  placeholder="Email" formControlName="email"/>
+      <input type="password"  name="password" required  placeholder="Password" formControlName="password"/>
+      <button type="submit">Create your account</button>
+    </form>
+   <p>Already have an account? <a routerLink="/login">Login</a></p>
+</div>
+
+
+  

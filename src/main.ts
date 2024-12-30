@@ -4,5 +4,5 @@ import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
 
   bootstrapApplication(AppComponent, {
-    providers: [provideHttpClient()], // Add HttpClient as a provider
+    providers: [provideHttpClient(),...appConfig.providers], // Add HttpClient as a provider
   }).catch((err) => console.error(err));

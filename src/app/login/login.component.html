@@ -1,0 +1,11 @@
+
+<div class="login-container">
+  <h2>Login</h2>
+      <form [formGroup]="profileForm" (ngSubmit)="login()">
+      <p *ngIf="errorMessage" class="error-box">{{ errorMessage }}</p>
+      <input type="email" name="email" required  placeholder="Email" formControlName="email"/>
+      <input type="password"  name="password" required  placeholder="Password" formControlName="password"/>
+      <button type="submit" >Login</button>
+    </form>
+  <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+</div>
