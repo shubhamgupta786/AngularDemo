@@ -1,0 +1,173 @@
+.email-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f5f9;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+  }
+  .filter-buttons span{
+    padding-top:6px;
+  }
+  
+  .filter-buttons button {
+    background-color: #f4f5f9;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 14px;
+  }
+  
+  .filter-buttons button.active {
+    background-color: #e1e4ea;
+  }
+  
+  /* Split View */
+  .email-split-view {
+    display: flex; 
+    flex: 1;
+  }
+  
+  /* Master Panel */
+  .email-list {
+
+   width: 100%;
+ overflow-y: auto;
+
+  }
+ 
+  
+  .email-item {
+    display: flex;
+    padding: 5px 20px;
+    border: 1px solid #cfd2dc;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin: 16px 35px 16px 35px;
+  }
+  
+  .email-item.selected {
+    background-color: #f2f2f2;
+    border: 2px solid #e54065;
+  }
+  
+  .email-avatar {
+    background-color: #e54065;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+  
+  .email-info {
+    flex: 1;
+    margin-top: -15px;
+  }
+
+  
+  .short-description {
+    color: #636363;
+    font-size: 14px;
+    white-space: nowrap;         
+    overflow: hidden;            
+    text-overflow: ellipsis;    
+  }
+  
+  .email-date {
+    font-size: 13px;
+    color: #636363;
+    /* margin-top: 5px; */
+  }
+  
+  
+  .favorite-text {
+    font-size: 12px;
+    color: #e54065;
+    font-weight: bold;
+    margin-left: 15px;
+  }
+  
+  /* Slave Panel */
+  .email-body {
+    width: 95%;
+    background-color: #ffffff;
+   flex-direction: column;
+    display: flex;
+    padding: 15px 20px;
+    border: 1px solid #cfd2dc;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-items: flex-start;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin: 16px 35px 16px 0px;
+  }
+  
+  .email-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  
+  }
+  
+  .email-details {
+    display: flex;
+  
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .email-details div {
+    margin: 0;
+    font-size: 18px;
+    color: #636363;
+    font-weight: bold; 
+    
+  }
+  
+  .email-details .email-date {
+    font-size: 16px;
+    color: #636363;
+  }
+  
+  .email-content {
+    flex: 1;
+    font-size: 14px;
+    color: #636363;
+    line-height: 1.6;
+    margin: -15px 45px 16px 65px;
+  }
+
+  
+  .favorite-button {
+    align-self: flex-end;
+    background-color: #e54065;
+    color: #ffffff;
+    border: none;
+    padding: 3px 8px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 14px;
+    float: inline-end;
+    margin-left: auto;
+    margin-right: -150%;
+  }
+
+  

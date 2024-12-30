@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "outlook": {
+    "demo": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/outlook",
+            "outputPath": "dist/demo",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "outlook:build:production"
+              "buildTarget": "demo:build:production"
             },
             "development": {
-              "buildTarget": "outlook:build:development"
+              "buildTarget": "demo:build:development"
             }
           },
           "defaultConfiguration": "development"
