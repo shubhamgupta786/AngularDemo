@@ -1,6 +1,29 @@
-# Demo
+# My Outlook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+An intuitive and modern email application built using Angular, designed to mimic the functionality and user interface of Outlook. This project is deployed and accessible here.https://my-outlook.vercel.app.
+
+## Features
+
+- **User Authentication**: Secure login and signup functionality.
+- **Dynamic Navigation**: Title and logo update dynamically based on the current route.
+- **Responsive Design**: Fully responsive UI for seamless usage on mobile, tablet, and desktop devices.
+- **Form Validation**: Robust client-side form validation using Angular's reactive forms.
+- **Token-based Authentication**: Simulated authentication with JWT for learning purposes.
+- **Error Handling**: Graceful error messages for authentication issues and invalid form inputs.
+- **User Interface**: Modern and easy-to-navigate interface.
+
+## Tech Stack
+
+- **Frontend**: Angular (Standalone Components, Reactive Forms)
+- **Styling**: CSS (Flexbox for layout)
+- **Backend**: Simulated backend using hardcoded responses.
+- **Deployment**: Vercel for seamless CI/CD.
+
+## Installation and Setup
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [Angular CLI](https://angular.io/cli)
 
 ## Development server
 
